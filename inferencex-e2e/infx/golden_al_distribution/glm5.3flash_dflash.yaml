@@ -1,0 +1,27 @@
+# Source Modal run: ap-peB5G5P20DAgSZLXe5hz6b (modal-labs/zheng-dev), 2026-10-17; not a GitHub Actions run.
+# Acceptance Length (AL) reference values measured with SPEED-Bench.
+# dataset: coding | temperature: 1.0 | top_p: 0.95 | output_len: 4096 | max_concurrency: 32
+# thinking_on: chat template default (reasoning_effort max)
+# draft: incoai/GLM-5.3-Flash-DFlash2 @ bf582e4eacc1810f76656d1811693ff6c6737d2a
+# target: nvidia/GLM-5.3-Flash-NVFP4 @ da920bb0b9f4a06727223a349e55468e38352348
+# Measured on glm-5.3-flash-nvfp4 (2x B200 TP2, vLLM DFlash2), per num_speculative_tokens.
+# engine: vllm/vllm-openai:nightly-77154ca6116ae34cbfe314beef1016bde9b63989 (vllm 0.32.0rc1.dev100+g77154ca61)
+#   vllm serve --tensor-parallel-size 2 --kv-cache-dtype fp8 --no-enable-prefix-caching
+#   --reasoning-parser glm45 --max-model-len 16384
+#   --speculative-config '{"method":"dflash","model":DRAFT,"num_speculative_tokens":K}'
+#   vllm bench serve --dataset-name speed_bench --speed-bench-category coding, one clean server per K.
+# AL = 1 + delta(spec_decode_num_accepted_tokens_total) / delta(spec_decode_num_drafts_total); 80/80 prompts per K.
+# Prompts: NeMo-Skills speed-bench prepare.py --config qualitative, filtered to the coding
+# category before resolution (other categories need the gated cais/hle dataset); coding
+# prompts are unchanged by the filter.
+#
+# key = num_speculative_tokens (DFlash2 draft tokens); value = golden AL
+glm-5.3-flash-nvfp4:
+  thinking_on:
+    1: 1.85
+    2: 2.53
+    3: 3.04
+    4: 3.47
+    5: 3.80
+    6: 4.00
+    7: 4.20

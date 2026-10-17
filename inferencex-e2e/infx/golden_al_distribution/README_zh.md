@@ -139,6 +139,7 @@ gh workflow run speedbench-al.yml \
 | GLM-5.3 | MTP（临时，K=3 取自 GLM-5.2） | [`glm5.3_mtp.yaml`](glm5.3_mtp.yaml) | [28058352479](https://github.com/SemiAnalysisAI/InferenceX/actions/runs/28058352479)（GLM-5.2） |
 | Qwen3.8-Flash-Next | MTP (native) | [`qwen3.8next_mtp.yaml`](qwen3.8next_mtp.yaml) | [33034290269](https://github.com/SemiAnalysisAI/InferenceX/actions/runs/33034290269) |
 | Muse Spark Open | DFlash2 | [`musespark_dflash.yaml`](musespark_dflash.yaml) | [38808046215](https://github.com/SemiAnalysisAI/InferenceX/actions/runs/38808046215) |
+| GLM-5.3-Flash (NVFP4) | DFlash2 | [`glm5.3flash_dflash.yaml`](glm5.3flash_dflash.yaml) | Modal `ap-peB5G5P20DAgSZLXe5hz6b`（非 Actions 运行） |
 
 ## 在 srt-slurm 运行中使用黄金曲线
 
